@@ -1,14 +1,4 @@
-import pytest
-
-from pytest_training.fixture.application import Application
 from pytest_training.model.group import Group
-
-
-@pytest.fixture
-def app(request):
-    fixture = Application()
-    request.addfinalizer(fixture.destroy)
-    yield fixture
 
 
 def test_add_group(app):

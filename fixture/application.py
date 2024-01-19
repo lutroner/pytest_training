@@ -1,8 +1,8 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 
-from fixture.group import GroupHelper
-from fixture.session import SessionHelper
+from pytest_training.fixture.contact import ContactHelper
+from pytest_training.fixture.group import GroupHelper
+from pytest_training.fixture.session import SessionHelper
 
 
 class Application:
@@ -12,6 +12,7 @@ class Application:
         self.driver.implicitly_wait(60)
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
+        self.contact = ContactHelper(self)
 
     def open_home_page(self):
         self.driver.get("http://localhost/addressbook/")
