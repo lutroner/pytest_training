@@ -9,7 +9,6 @@ class Application:
     def __init__(self):
         self.driver = webdriver.Chrome()
         self.driver.set_window_size(800, 600)
-        self.driver.implicitly_wait(60)
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
         self.contact = ContactHelper(self)
@@ -19,3 +18,10 @@ class Application:
 
     def destroy(self):
         self.driver.quit()
+
+    def is_valid(self):
+        try:
+            self.driver.current_url
+            return True
+        except:
+            return False
